@@ -19,144 +19,232 @@ public class Calculadora extends javax.swing.JFrame {
         this.setResizable(false);
     }
 
+    public String sincero(float resultado) {
+        String retorno = "";
+
+        retorno = Float.toString(resultado);
+
+        if (resultado % 1 == 0) {
+            retorno = retorno.substring(0, retorno.length() - 2);
+
+        }
+
+        return retorno;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
+        btnPorcentaje = new javax.swing.JButton();
+        btnSeis = new javax.swing.JButton();
+        btnDos = new javax.swing.JButton();
+        btnUno = new javax.swing.JButton();
+        btnFlecha = new javax.swing.JButton();
+        btnCinco = new javax.swing.JButton();
+        btnCuatro = new javax.swing.JButton();
+        btnSiete = new javax.swing.JButton();
+        btnOcho = new javax.swing.JButton();
+        btnCero = new javax.swing.JButton();
+        btnPunto = new javax.swing.JButton();
+        btnSuma = new javax.swing.JButton();
+        btnResultado = new javax.swing.JButton();
+        btnTres = new javax.swing.JButton();
+        btnResta = new javax.swing.JButton();
+        btnMod = new javax.swing.JButton();
+        btnNueve = new javax.swing.JButton();
+        btnMenosM = new javax.swing.JButton();
+        btnC = new javax.swing.JButton();
+        btnCE = new javax.swing.JButton();
+        btnMultiplicacion = new javax.swing.JButton();
+        btnDivision = new javax.swing.JButton();
+        btnMC = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btnSumaResta = new javax.swing.JButton();
+        btnMmas = new javax.swing.JButton();
+        btnMS = new javax.swing.JButton();
+        btnMR = new javax.swing.JButton();
+        lbltablero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("%");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 60, 30));
+        btnPorcentaje.setText("%");
+        jPanel1.add(btnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 60, 30));
 
-        jButton2.setText("6");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 50, 30));
-
-        jButton3.setText("2");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 50, 30));
-
-        jButton4.setText("1");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 50, 30));
-
-        jButton5.setText("<-");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnSeis.setText("6");
+        btnSeis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnSeisActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 50, 30));
+        jPanel1.add(btnSeis, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 50, 30));
 
-        jButton6.setText("5");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 50, 30));
-
-        jButton7.setText("4");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, 30));
-
-        jButton8.setText("7");
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 50, 30));
-
-        jButton9.setText("8");
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 50, 30));
-
-        jButton10.setText("0");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 110, 30));
-
-        jButton11.setText(".");
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 50, 30));
-
-        jButton12.setText("+");
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 50, 30));
-
-        jButton13.setText("=");
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 60, 70));
-
-        jButton14.setText("3");
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 50, 30));
-
-        jButton15.setText("-");
-        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 50, 30));
-
-        jButton16.setText("mod");
-        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 60, 30));
-
-        jButton17.setText("9");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnDos.setText("2");
+        btnDos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btnDosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 50, 30));
+        jPanel1.add(btnDos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 50, 30));
 
-        jButton18.setText("M-");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        btnUno.setText("1");
+        btnUno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                btnUnoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 60, 30));
+        jPanel1.add(btnUno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 50, 30));
 
-        jButton19.setText("C");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        btnFlecha.setText("<-");
+        btnFlecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                btnFlechaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 50, 30));
+        jPanel1.add(btnFlecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 50, 30));
 
-        jButton20.setText("CE");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        btnCinco.setText("5");
+        btnCinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                btnCincoActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 30));
+        jPanel1.add(btnCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 50, 30));
 
-        jButton21.setText("*");
-        jPanel1.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 50, 30));
-
-        jButton22.setText("/");
-        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 50, 30));
-
-        jButton23.setText("MC");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        btnCuatro.setText("4");
+        btnCuatro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                btnCuatroActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, 30));
+        jPanel1.add(btnCuatro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 50, 30));
+
+        btnSiete.setText("7");
+        btnSiete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSieteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSiete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 50, 30));
+
+        btnOcho.setText("8");
+        btnOcho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOchoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnOcho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 50, 30));
+
+        btnCero.setText("0");
+        btnCero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCeroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 110, 30));
+
+        btnPunto.setText(".");
+        btnPunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPuntoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 50, 30));
+
+        btnSuma.setText("+");
+        btnSuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSumaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSuma, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 50, 30));
+
+        btnResultado.setText("=");
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 60, 70));
+
+        btnTres.setText("3");
+        btnTres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTresActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnTres, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 50, 30));
+
+        btnResta.setText("-");
+        btnResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 50, 30));
+
+        btnMod.setText("mod");
+        jPanel1.add(btnMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 60, 30));
+
+        btnNueve.setText("9");
+        btnNueve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNueveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNueve, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 50, 30));
+
+        btnMenosM.setText("M-");
+        btnMenosM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenosMActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMenosM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 60, 30));
+
+        btnC.setText("C");
+        btnC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 50, 30));
+
+        btnCE.setText("CE");
+        btnCE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCEActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 30));
+
+        btnMultiplicacion.setText("*");
+        btnMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicacionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMultiplicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 50, 30));
+
+        btnDivision.setText("/");
+        btnDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivisionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDivision, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 50, 30));
+
+        btnMC.setText("MC");
+        btnMC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMCActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, 30));
 
         jButton24.setText("M-");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
@@ -166,41 +254,41 @@ public class Calculadora extends javax.swing.JFrame {
         });
         jPanel1.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 60, 30));
 
-        jButton25.setText("+ -");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        btnSumaResta.setText("+ -");
+        btnSumaResta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                btnSumaRestaActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 50, 30));
+        jPanel1.add(btnSumaResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 50, 30));
 
-        jButton26.setText("M+");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        btnMmas.setText("M+");
+        btnMmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                btnMmasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 60, 30));
+        jPanel1.add(btnMmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 60, 30));
 
-        jButton27.setText("MS");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        btnMS.setText("MS");
+        btnMS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                btnMSActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 60, 30));
+        jPanel1.add(btnMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 60, 30));
 
-        jButton28.setText("MR");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        btnMR.setText("MR");
+        btnMR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                btnMRActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 60, 30));
+        jPanel1.add(btnMR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 60, 30));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, 60));
+        lbltablero.setBackground(new java.awt.Color(255, 255, 255));
+        lbltablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel1.add(lbltablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,116 +304,166 @@ public class Calculadora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnFlechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnFlechaActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void btnNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueveActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "9");
+    }//GEN-LAST:event_btnNueveActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void btnMenosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_btnMenosMActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_btnCEActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_btnMCActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton24ActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void btnSumaRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaRestaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }//GEN-LAST:event_btnSumaRestaActionPerformed
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void btnMmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMmasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_btnMmasActionPerformed
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void btnMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_btnMSActionPerformed
 
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+    private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
+    }//GEN-LAST:event_btnMRActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        this.num2 = Float.parseFloat(this.lbltablero.getText());
+        switch (this.signo) {
+            case "+":
+                this.lbltablero.setText(sincero(num1 + num2));
+                break;
+            case "-":
+                this.lbltablero.setText(sincero(num1 - num2));
+                break;
+            case "/":
+                this.lbltablero.setText(sincero(num1 / num2));
+                break;
+            case "*":
+                this.lbltablero.setText(sincero(num1 * num2));
+                break;
         }
-        //</editor-fold>
+    }//GEN-LAST:event_btnResultadoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Calculadora().setVisible(true);
-            }
-        });
-    }
+    private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnCActionPerformed
+
+    private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
+        if (!(this.lbltablero.getText().contains("."))) {
+            this.lbltablero.setText(this.lbltablero.getText() + ".");
+        }
+    }//GEN-LAST:event_btnPuntoActionPerformed
+
+    private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "+";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnSumaActionPerformed
+
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "-";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "*";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnMultiplicacionActionPerformed
+
+    private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "/";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnDivisionActionPerformed
+
+    private void btnOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOchoActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "8");
+    }//GEN-LAST:event_btnOchoActionPerformed
+
+    private void btnSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSieteActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "7");
+    }//GEN-LAST:event_btnSieteActionPerformed
+
+    private void btnCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCincoActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "5");
+    }//GEN-LAST:event_btnCincoActionPerformed
+
+    private void btnCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuatroActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "4");
+    }//GEN-LAST:event_btnCuatroActionPerformed
+
+    private void btnTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTresActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "3");
+    }//GEN-LAST:event_btnTresActionPerformed
+
+    private void btnDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDosActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "2");
+    }//GEN-LAST:event_btnDosActionPerformed
+
+    private void btnUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnoActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "1");
+    }//GEN-LAST:event_btnUnoActionPerformed
+
+    private void btnSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeisActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "6");
+    }//GEN-LAST:event_btnSeisActionPerformed
+
+    private void btnCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeroActionPerformed
+        this.lbltablero.setText(this.lbltablero.getText() + "0");
+    }//GEN-LAST:event_btnCeroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
+    private javax.swing.JButton btnC;
+    private javax.swing.JButton btnCE;
+    private javax.swing.JButton btnCero;
+    private javax.swing.JButton btnCinco;
+    private javax.swing.JButton btnCuatro;
+    private javax.swing.JButton btnDivision;
+    private javax.swing.JButton btnDos;
+    private javax.swing.JButton btnFlecha;
+    private javax.swing.JButton btnMC;
+    private javax.swing.JButton btnMR;
+    private javax.swing.JButton btnMS;
+    private javax.swing.JButton btnMenosM;
+    private javax.swing.JButton btnMmas;
+    private javax.swing.JButton btnMod;
+    private javax.swing.JButton btnMultiplicacion;
+    private javax.swing.JButton btnNueve;
+    private javax.swing.JButton btnOcho;
+    private javax.swing.JButton btnPorcentaje;
+    private javax.swing.JButton btnPunto;
+    private javax.swing.JButton btnResta;
+    private javax.swing.JButton btnResultado;
+    private javax.swing.JButton btnSeis;
+    private javax.swing.JButton btnSiete;
+    private javax.swing.JButton btnSuma;
+    private javax.swing.JButton btnSumaResta;
+    private javax.swing.JButton btnTres;
+    private javax.swing.JButton btnUno;
     private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField lbltablero;
     // End of variables declaration//GEN-END:variables
 
 }
