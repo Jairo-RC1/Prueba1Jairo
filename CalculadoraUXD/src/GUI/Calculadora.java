@@ -14,8 +14,6 @@ public class Calculadora extends javax.swing.JFrame {
 
     public float num1, num2;
     String signo;
-    private static double valorMemoria = 0.0;
-    private static double resultado = 0.0;
     String pantalla = "";
     Stack<Float> memoria = new Stack<>();
 
@@ -35,15 +33,6 @@ public class Calculadora extends javax.swing.JFrame {
 
         }
 
-        return retorno;
-    }
-
-    public String concero(float resultado) {
-        String retorno = "";
-        retorno = Float.toString(resultado);
-        if (resultado % 1 == 0) {
-            retorno = retorno;
-        }
         return retorno;
     }
 
@@ -92,6 +81,11 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnPorcentaje.setText("%");
+        btnPorcentaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPorcentajeActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPorcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 60, 30));
 
         btnSeis.setText("6");
@@ -244,7 +238,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btnCEActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 50, 30));
+        jPanel1.add(btnCE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 60, 30));
 
         btnMultiplicacion.setText("*");
         btnMultiplicacion.addActionListener(new java.awt.event.ActionListener() {
@@ -336,13 +330,19 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFlechaActionPerformed
 
     private void btnNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueveActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "9");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "9");
+        }
     }//GEN-LAST:event_btnNueveActionPerformed
 
     private void btnMenosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosMActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "M-";
-        this.lbltablero.setText(" ");
+        if (!memoria.isEmpty()) {
+            float valorMemoria = memoria.pop();
+            float valorPantalla = Float.parseFloat(lbltablero.getText());
+            float resultado = valorMemoria - valorPantalla;
+            memoria.push(resultado);
+            clearError();
+        }
     }//GEN-LAST:event_btnMenosMActionPerformed
 
     private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
@@ -404,7 +404,7 @@ public class Calculadora extends javax.swing.JFrame {
                 this.lbltablero.setText(sincero(num1 * num2));
                 break;
             case "%":
-                this.lbltablero.setText(sincero(num1 % num2));
+                this.lbltablero.setText(sincero((num1 * num2)/100));
                 break;
             case "mod":
                 if (num2 != 0) {
@@ -429,8 +429,8 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
-        if (!(this.lbltablero.getText().contains("."))) {
-            this.lbltablero.setText(this.lbltablero.getText() + ".");
+        if (lbltablero.getText().length() < 10 && !lbltablero.getText().contains(".")) {
+            lbltablero.setText(lbltablero.getText() + ".");
         }
     }//GEN-LAST:event_btnPuntoActionPerformed
 
@@ -459,39 +459,57 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivisionActionPerformed
 
     private void btnOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOchoActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "8");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "8");
+        }
     }//GEN-LAST:event_btnOchoActionPerformed
 
     private void btnSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSieteActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "7");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "7");
+        }
     }//GEN-LAST:event_btnSieteActionPerformed
 
     private void btnCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCincoActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "5");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "5");
+        }
     }//GEN-LAST:event_btnCincoActionPerformed
 
     private void btnCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuatroActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "4");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "4");
+        }
     }//GEN-LAST:event_btnCuatroActionPerformed
 
     private void btnTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTresActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "3");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "3");
+        }
     }//GEN-LAST:event_btnTresActionPerformed
 
     private void btnDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDosActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "2");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "2");
+        }
     }//GEN-LAST:event_btnDosActionPerformed
 
     private void btnUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnoActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "1");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "1");
+        }
     }//GEN-LAST:event_btnUnoActionPerformed
 
     private void btnSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeisActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "6");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "6");
+        }
     }//GEN-LAST:event_btnSeisActionPerformed
 
     private void btnCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeroActionPerformed
-        this.lbltablero.setText(this.lbltablero.getText() + "0");
+        if (lbltablero.getText().length() < 10) {
+            this.lbltablero.setText(this.lbltablero.getText() + "0");
+        }
     }//GEN-LAST:event_btnCeroActionPerformed
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
@@ -499,6 +517,12 @@ public class Calculadora extends javax.swing.JFrame {
         this.signo = "mod";
         this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnModActionPerformed
+
+    private void btnPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcentajeActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "%";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnPorcentajeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
