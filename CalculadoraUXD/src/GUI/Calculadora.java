@@ -12,6 +12,8 @@ public class Calculadora extends javax.swing.JFrame {
 
     public float num1, num2;
     String signo;
+    private static double memoryValue = 0.0;
+    private static double currentResult = 0.0;
 
     public Calculadora() {
         initComponents();
@@ -30,6 +32,44 @@ public class Calculadora extends javax.swing.JFrame {
         }
 
         return retorno;
+    }
+
+    public String concero(float resultado) {
+        String retorno = "";
+        retorno = Float.toString(resultado);
+        if (resultado % 1 == 0) {
+            retorno = retorno;
+        }
+        return retorno;
+    }
+
+    private static void memoryClear() {
+        memoryValue = 0.0;
+    }
+
+    private static void memoryRecall() {
+        System.out.println("Número en memoria: " + memoryValue);
+    }
+
+    private static void memoryStore() {
+        memoryValue = currentResult;
+    }
+
+    private static void memoryAdd() {
+        memoryValue += currentResult;
+    }
+
+    private static void memorySubtract() {
+        memoryValue -= currentResult;
+    }
+
+    private static void clearError() {
+        currentResult = 0.0;
+    }
+
+    private static void clearAll() {
+        currentResult = 0.0;
+        memoryClear();
     }
 
     @SuppressWarnings("unchecked")
@@ -188,6 +228,11 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.add(btnResta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 50, 30));
 
         btnMod.setText("mod");
+        btnMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 60, 30));
 
         btnNueve.setText("9");
@@ -287,6 +332,7 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel1.add(btnMR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 60, 30));
 
         lbltablero.setBackground(new java.awt.Color(255, 255, 255));
+        lbltablero.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         lbltablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jPanel1.add(lbltablero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 300, 60));
 
@@ -305,7 +351,9 @@ public class Calculadora extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFlechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlechaActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "<-";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnFlechaActionPerformed
 
     private void btnNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueveActionPerformed
@@ -313,15 +361,21 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNueveActionPerformed
 
     private void btnMenosMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosMActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "M-";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnMenosMActionPerformed
 
     private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "CE";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnCEActionPerformed
 
     private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "MC";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnMCActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -329,19 +383,27 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void btnSumaRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaRestaActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "+-";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnSumaRestaActionPerformed
 
     private void btnMmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMmasActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "M+";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnMmasActionPerformed
 
     private void btnMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMSActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "MS";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnMSActionPerformed
 
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
-        // TODO add your handling code here:
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "MR";
+        this.lbltablero.setText(" ");
     }//GEN-LAST:event_btnMRActionPerformed
 
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
@@ -359,6 +421,12 @@ public class Calculadora extends javax.swing.JFrame {
             case "*":
                 this.lbltablero.setText(sincero(num1 * num2));
                 break;
+            case "%":
+                this.lbltablero.setText(sincero(num1 % num2));
+            case "mod":
+                this.lbltablero.setText(concero(num1 % num2));
+            case "MR":
+                this.memoryRecall();
         }
     }//GEN-LAST:event_btnResultadoActionPerformed
 
@@ -431,6 +499,12 @@ public class Calculadora extends javax.swing.JFrame {
     private void btnCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeroActionPerformed
         this.lbltablero.setText(this.lbltablero.getText() + "0");
     }//GEN-LAST:event_btnCeroActionPerformed
+
+    private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
+        this.num1 = Float.parseFloat(this.lbltablero.getText());
+        this.signo = "mod";
+        this.lbltablero.setText(" ");
+    }//GEN-LAST:event_btnModActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
