@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import java.util.Stack;
+
 /**
  *
  * @author jairo
@@ -12,8 +14,10 @@ public class Calculadora extends javax.swing.JFrame {
 
     public float num1, num2;
     String signo;
-    private static double memoryValue = 0.0;
-    private static double currentResult = 0.0;
+    private static double valorMemoria = 0.0;
+    private static double resultado = 0.0;
+    String pantalla = "";
+    Stack<Float> memoria = new Stack<>();
 
     public Calculadora() {
         initComponents();
@@ -43,33 +47,8 @@ public class Calculadora extends javax.swing.JFrame {
         return retorno;
     }
 
-    private static void memoryClear() {
-        memoryValue = 0.0;
-    }
-
-    private static void memoryRecall() {
-        System.out.println("Número en memoria: " + memoryValue);
-    }
-
-    private static void memoryStore() {
-        memoryValue = currentResult;
-    }
-
-    private static void memoryAdd() {
-        memoryValue += currentResult;
-    }
-
-    private static void memorySubtract() {
-        memoryValue -= currentResult;
-    }
-
-    private static void clearError() {
-        currentResult = 0.0;
-    }
-
-    private static void clearAll() {
-        currentResult = 0.0;
-        memoryClear();
+    private void clearError() {
+        lbltablero.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -367,15 +346,11 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenosMActionPerformed
 
     private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "CE";
-        this.lbltablero.setText(" ");
+        clearError();
     }//GEN-LAST:event_btnCEActionPerformed
 
     private void btnMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "MC";
-        this.lbltablero.setText(" ");
+        memoria.clear();
     }//GEN-LAST:event_btnMCActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -389,21 +364,28 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSumaRestaActionPerformed
 
     private void btnMmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMmasActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "M+";
-        this.lbltablero.setText(" ");
+        if (!memoria.isEmpty()) {
+            float valorMemoria = memoria.pop();
+            float valorPantalla = Float.parseFloat(lbltablero.getText());
+            float resultado = valorMemoria + valorPantalla;
+            memoria.push(resultado);
+            clearError();
+        }
     }//GEN-LAST:event_btnMmasActionPerformed
 
     private void btnMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMSActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "MS";
-        this.lbltablero.setText(" ");
+        if (!lbltablero.getText().isEmpty()) {
+            float valorPantalla = Float.parseFloat(lbltablero.getText());
+            memoria.push(valorPantalla);
+            clearError();
+        }
     }//GEN-LAST:event_btnMSActionPerformed
 
     private void btnMRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRActionPerformed
-        this.num1 = Float.parseFloat(this.lbltablero.getText());
-        this.signo = "MR";
-        this.lbltablero.setText(" ");
+        if (!memoria.isEmpty()) {
+            float valorMemoria = memoria.peek();
+            lbltablero.setText(sincero(valorMemoria));
+        }
     }//GEN-LAST:event_btnMRActionPerformed
 
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
@@ -423,11 +405,23 @@ public class Calculadora extends javax.swing.JFrame {
                 break;
             case "%":
                 this.lbltablero.setText(sincero(num1 % num2));
+                break;
             case "mod":
-                this.lbltablero.setText(concero(num1 % num2));
-            case "MR":
-                this.memoryRecall();
+                if (num2 != 0) {
+                    this.lbltablero.setText(sincero(num1 % num2));
+                } else {
+                    this.lbltablero.setText("Error: División por cero");
+                }
+                break;
+            case "":
+                break;
+            default:
+                this.lbltablero.setText("Error: Operador no válido");
+                break;
         }
+        this.signo = "";
+
+
     }//GEN-LAST:event_btnResultadoActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
